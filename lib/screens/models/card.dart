@@ -107,7 +107,9 @@ class CustomCard extends StatelessWidget {
                     child: const Text(
                       "Give Openion",
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      bottomSheet(context);
+                    },
                   ),
                 ],
               ),
@@ -117,4 +119,56 @@ class CustomCard extends StatelessWidget {
       ),
     );
   }
+}
+
+void bottomSheet(context) {
+  showModalBottomSheet(
+    context: context,
+    backgroundColor: Colors.white,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadiusDirectional.only(
+        topEnd: Radius.circular(25),
+        topStart: Radius.circular(25),
+      ),
+    ),
+    builder: (context) => Container(
+      height: 330,
+      width: 360,
+      child: Column(
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(8),
+            child: Text("Select one option"),
+          ),
+          ListTile(
+              leading: Icon(Icons.star_rate),
+              title: Text("5 Star"),
+              onTap: () {}),
+          ListTile(
+              leading: Icon(Icons.star_rate),
+              title: Text("4 Star"),
+              onTap: () {}),
+          ListTile(
+              leading: Icon(Icons.star_rate),
+              title: Text("3 Star"),
+              onTap: () {}),
+          ListTile(
+              leading: Icon(Icons.star_rate),
+              title: Text("2 Star"),
+              onTap: () {}),
+          ListTile(
+              leading: Icon(Icons.star_rate),
+              title: Text("1 Star"),
+              onTap: () {}),
+          ListTile(
+            leading: Icon(Icons.yard),
+            title: Text("Worst"),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
+    ),
+  );
 }
